@@ -6,6 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('users');
+  this.route('playlists');
+  this.route('videos');
 });
 
 export default Router;
