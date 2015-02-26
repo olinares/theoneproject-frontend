@@ -19,8 +19,9 @@ export default Ember.Controller.extend({
           newVideos.push({
             title: response.items[i].snippet.title,
             url: response.items[i].snippet.thumbnails.default.url,
+            videoId: response.items[i].id.videoId,
             description: response.items[i].snippet.description
-          })
+          });
         }
         _this.set("videos", newVideos)
         // console.log(_this.get("videos"))

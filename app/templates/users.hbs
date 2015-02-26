@@ -12,7 +12,8 @@
 {{#each response in videos}}
 <div class="ui list">
   <div class="item">
-    <img {{bind-attr src=response.url alt=imageTitle}}>
+    {{ember-youtube ytid=response.videoId}}
+    <!-- <img {{bind-attr src=response.url alt=imageTitle}}> -->
     <div class="content">
       <a class="header">{{response.title}}</a>
       <div class="description">
