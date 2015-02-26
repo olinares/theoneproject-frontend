@@ -1,17 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryResponse: null,
-  videos: [
-    {
-      title: "Hello",
-      description: "description"
-    },
-    {
-      title: "Hello 1",
-      description: "description 2"
-    }
-  ],
+  videos: [],
   actions: {
     search: function() {
       var _this = this;
@@ -22,8 +12,10 @@ export default Ember.Controller.extend({
       });
 
       request.execute(function(response) {
-        _this.set('queryResponse');
-        console.log(response);
+        var videos = _this.get('videos')
+        var newVideos = [{title:"hello 2", description:"description3"}]
+        _this.set("videos", newVideos)
+
         console.log(response.items[0].snippet.description);
       });
     }

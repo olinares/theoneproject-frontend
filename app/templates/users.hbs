@@ -8,8 +8,6 @@
   <input type="submit" name="submit">
 </form>
 
-{{log queryResponse}}
-{{queryResponse}}
-{{#each user in model}}
-  <li>{{user.title}}</li>
+{{#each video in videos}}
+  <li>{{video.title}}</li>
 {{/each}}
