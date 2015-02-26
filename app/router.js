@@ -9,6 +9,8 @@ Router.map(function() {
   this.route('users');
   this.route('playlists');
   this.route('videos');
+  this.route('protected');
+  this.route('login');
 });
 
 export default Router;

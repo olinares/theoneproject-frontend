@@ -20,6 +20,9 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV['simple-auth-oauth2'] = {
+      serverTokenEndpoint: 'http://localhost:3000/token'
+    };
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

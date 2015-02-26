@@ -1,3 +1,11 @@
-
 <h2>This is the users template</h2>
+
+<form {{action 'search' on='submit'}}>
+  <div class="ui fluid icon input">
+    {{input value=searchTerm placeholder="Search for your favorite videos..."}}
+    <i class="search icon"></i>
+  </div>
+  <input type="submit" name="submit">
+</form>
+
 {{outlet}}

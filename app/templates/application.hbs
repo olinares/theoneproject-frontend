@@ -1,6 +1,29 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div id="container">
+  <h2 id="title">Welcome to THE ONE APP</h2>
 
-{{#link-to "users"}}Users{{/link-to}}
-{{#link-to "playlists"}}Playlists{{/link-to}}
-{{#link-to "videos"}}Videos{{/link-to}}
-{{outlet}}
+  {{#if session.isAuthenticated}}
+    <a {{ action 'invalidateSession' }}>Logout</a>
+  {{else}}
+    <div class="ui button">{{#link-to 'login'}}Login{{/link-to}}</div>
+  {{/if}}
+
+  <div class="ui grid">
+    <div class="four wide column">
+
+        <div class="ui vertical pointing menu" id="main-menu">
+          {{#link-to "users" classNames="item"}}Users{{/link-to}}
+          {{#link-to "playlists" classNames="item"}}Playlists{{/link-to}}
+          {{#link-to "videos" classNames="item"}}Videos{{/link-to}}
+        </div>
+
+    </div>
+    <div class="twelve wide column">
+      <div class="ui segment">
+        <div id="main-outlet">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
