@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  queryResponse: null,
   videos: [
     {
       title: "Hello",
@@ -13,15 +14,17 @@ export default Ember.Controller.extend({
   ],
   actions: {
     search: function() {
-      var qop = this.get('searchTerm');
+      var _this = this;
+      var query = this.get('searchTerm');
       var request = gapi.client.youtube.search.list({
-        q: qop,
+        q: query,
         part: 'snippet'
       });
 
       request.execute(function(response) {
-
+        _this.set('queryResponse');
         console.log(response);
+        console.log(response.items[0].snippet.description);
       });
     }
   }
