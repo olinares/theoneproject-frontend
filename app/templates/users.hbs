@@ -8,6 +8,11 @@
   <input type="submit" name="submit">
 </form>
 
-{{#each video in videos}}
-  <li>{{video.title}}</li>
+
+
+{{#each response in videos}}
+    {{log videos}}
+  <li>{{response.title}}</li>
+  <li>{{response.artist}}</li>
+  <li>{{response.description}}</li>
 {{/each}}
