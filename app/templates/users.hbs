@@ -9,10 +9,16 @@
 </form>
 
 
-
 {{#each response in videos}}
-    {{log videos}}
-  <li>{{response.title}}</li>
-  <li>{{response.artist}}</li>
-  <li>{{response.description}}</li>
+<div class="ui list">
+  <div class="item">
+    <img {{bind-attr src=response.url alt=imageTitle}}>
+    <div class="content">
+      <a class="header">{{response.title}}</a>
+      <div class="description">
+        {{response.description}}
+      </div>
+    </div>
+  </div>
+</div>
 {{/each}}

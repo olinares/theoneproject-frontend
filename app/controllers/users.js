@@ -14,10 +14,17 @@ export default Ember.Controller.extend({
 
       request.execute(function(response) {
         var videos = _this.get('videos')
-        var newVideos = [{title:"hello 2", description:"description3"}]
+        var newVideos = []
+        for (var i = 0; i < response.items.length; i++) {
+          newVideos.push({
+            title: response.items[i].snippet.title,
+            url: response.items[i].snippet.thumbnails.default.url,
+            description: response.items[i].snippet.description
+          })
+        }
         _this.set("videos", newVideos)
-        console.log(_this.get("videos"))
-        // console.log(response.items[0].snippet.description);
+        // console.log(_this.get("videos"))
+        console.log(response.items[0].snippet.thumbnails);
       });
     }
   }
