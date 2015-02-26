@@ -1,4 +1,28 @@
 <h2>this is the videos template</h2>
 
+<form {{action 'search' on='submit'}}>
+  <div class="ui fluid icon input">
+    {{input value=searchTerm placeholder="Search for your favorite videos..."}}
+    <i class="search icon"></i>
+  </div>
+  <input type="submit" name="submit">
+</form>
 
-  {{outlet}}
+
+{{#each response in videos}}
+<div class="ui list">
+  <div class="item">
+    <!-- <img {{bind-attr src=response.url alt=imageTitle}}> -->
+    <div class="content">
+      <a class="header">{{response.title}}</a>
+      {{ember-youtube ytid=response.videoId}}
+
+      <div class="description">
+        {{response.description}}
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+{{outlet}}
