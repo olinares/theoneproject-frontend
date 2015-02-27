@@ -1,3 +1,4 @@
+<h2>Enjoy the following collection of YouTube videos</h2>
 
 <form {{action 'search' on='submit'}}>
   <div class="ui massive fluid icon input">
@@ -6,22 +7,22 @@
   </div>
 </form>
 
-
-{{#each response in videos}}
-<div class="ui list">
-  <div class="item">
-    <img {{bind-attr src=response.url alt=imageTitle}}>
-    <div class="content">
-      <a class="header">{{response.title}}</a>
-      <div class="description">
-        {{response.description}}
+{{#each video in videos}}
+  <div class="ui list">
+    <div class="item">
+      <img {{bind-attr src=video.url alt="imageTitle"}}>
+      <div class="content">
+        <a class="header">{{video.title}}</a>
+        <i {{action "favorite" video}} {{bind-attr class=":heart :icon video.favorited:selected"}}></i>
+        <div class="description">
+          {{video.description}}
+        </div>
       </div>
       <div class="video">
         {{ember-youtube ytid=response.videoId}}
       </div>
     </div>
   </div>
-</div>
 {{/each}}
 
 {{outlet}}
