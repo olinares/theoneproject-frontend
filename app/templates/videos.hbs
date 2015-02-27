@@ -3,16 +3,15 @@
 <form {{action 'search' on='submit'}}>
   <div class="ui fluid icon input">
     {{input value=searchTerm placeholder="Search for your favorite videos..."}}
-    <i class="search icon"></i>
+    <i class="search icon" type="submit"></i>
   </div>
-  <input type="submit" name="submit">
 </form>
 
 
 {{#each response in videos}}
 <div class="ui list">
   <div class="item">
-    <!-- <img {{bind-attr src=response.url alt=imageTitle}}> -->
+    <img {{bind-attr src=response.url alt=imageTitle}}>
     <div class="content">
       <a class="header">{{response.title}}</a>
       {{ember-youtube ytid=response.videoId}}

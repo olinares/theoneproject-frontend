@@ -13,8 +13,8 @@ export default Ember.Controller.extend({
       });
 
       request.execute(function(response) {
-        var videos = _this.get('videos')
-        var newVideos = []
+        var videos = _this.get('videos');
+        var newVideos = [];
         for (var i = 0; i < response.items.length; i++) {
           newVideos.push({
             title: response.items[i].snippet.title,
@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
             description: response.items[i].snippet.description
           });
         }
-        _this.set("videos", newVideos)
+        _this.set("videos", newVideos);
         // console.log(_this.get("videos"))
         // console.log(response.items[0].snippet.thumbnails);
       });
