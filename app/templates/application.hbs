@@ -6,11 +6,13 @@
     {{#link-to "playlists" classNames="item"}}Playlists{{/link-to}}
     {{#link-to "videos" classNames="item"}}Videos{{/link-to}}
 
-    {{#if session.isAuthenticated}}
-      <a {{ action 'invalidateSession' }}>Logout</a>
-    {{else}}
-      <div class="ui secondary button">{{#link-to 'login'}}Login{{/link-to}}</div>
-    {{/if}}
+    <div class="right menu">
+      {{#if session.isAuthenticated}}
+        <a {{ action 'invalidateSession' }}>Logout</a>
+      {{else}}
+        <a class="item">{{#link-to 'login'}}Login{{/link-to}}</a>
+      {{/if}}
+    </div>
   </div>
   <body>
     <div id="main-outlet">
