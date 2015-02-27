@@ -12,9 +12,11 @@
       <div class="ui secondary button">{{#link-to 'login'}}Login{{/link-to}}</div>
     {{/if}}
   </div>
+  <body>
+    <div id="main-outlet">
+      {{outlet}}
+    </div>
+  </body>
 
-  <div id="main-outlet">
-    {{outlet}}
-  </div>
 
 </div>
