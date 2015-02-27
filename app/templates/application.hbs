@@ -1,28 +1,20 @@
 <div id="container">
-  <h2 id="title">Welcome to THE ONE APP</h2>
 
-  {{#if session.isAuthenticated}}
-  <a {{ action 'invalidateSession' }}>Logout</a>
-  {{else}}
-  <div class="ui button">{{#link-to 'login'}}Login{{/link-to}}</div>
-  {{/if}}
 
-  <div class="ui grid">
-    <div class="four wide column">
+  <div class="ui inverted menu" id="main-menu">
+    {{#link-to "users" classNames="item"}}Users{{/link-to}}
+    {{#link-to "playlists" classNames="item"}}Playlists{{/link-to}}
+    {{#link-to "videos" classNames="item"}}Videos{{/link-to}}
 
-      <div class="ui vertical pointing menu" id="main-menu">
-        {{#link-to "users" classNames="item"}}Users{{/link-to}}
-        {{#link-to "playlists" classNames="item"}}Playlists{{/link-to}}
-        {{#link-to "videos" classNames="item"}}Videos{{/link-to}}
-      </div>
-
+    <div class="right menu">
+      {{#if session.isAuthenticated}}
+        <a {{ action 'invalidateSession' }}>Logout</a>
+      {{else}}
+        <a class="item">{{#link-to 'login'}}Login{{/link-to}}</a>
+      {{/if}}
     </div>
-    <div class="twelve wide column">
-      <div class="ui segment">
-        <div id="main-outlet">
-          {{outlet}}
-        </div>
-      </div>
-    </div>
+  </div>
+  <div id="main-outlet">
+    {{outlet}}
   </div>
 </div>

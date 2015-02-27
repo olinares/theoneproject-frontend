@@ -2,9 +2,15 @@
   padding-left:2%;
   padding-right:2%;
 }
+
 .heart.icon:active {
   color:black;
 }
+
 .heart.icon.selected {
   color:red;
+}
+
+body {
+  background-image: url("6.png")
 }

@@ -1,12 +1,11 @@
 <h2>Enjoy the following collection of YouTube videos</h2>
 
 <form {{action 'search' on='submit'}}>
-  <div class="ui fluid icon input">
+  <div class="ui massive fluid icon input">
     {{input value=searchTerm placeholder="Search for your favorite videos..."}}
     <i class="search icon" type="submit"></i>
   </div>
 </form>
-
 
 {{#each video in videos}}
   <div class="ui list">
@@ -14,11 +13,13 @@
       <img {{bind-attr src=video.url alt="imageTitle"}}>
       <div class="content">
         <a class="header">{{video.title}}</a>
-        {{ember-youtube ytid=video.videoId}}
         <i {{action "favorite" video}} {{bind-attr class=":heart :icon video.favorited:selected"}}></i>
         <div class="description">
           {{video.description}}
         </div>
+      </div>
+      <div class="video">
+        {{ember-youtube ytid=response.videoId}}
       </div>
     </div>
   </div>
