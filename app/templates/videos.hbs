@@ -1,3 +1,4 @@
+<h2>Enjoy the following collection of YouTube videos</h2>
 
 <form {{action 'search' on='submit'}}>
   <div class="ui massive fluid icon input">
@@ -6,21 +7,19 @@
   </div>
 </form>
 
-
-{{#each response in videos}}
-<div class="ui very relaxed items">
-  <div class="item">
-    <div class="image">
-      <img {{bind-attr src=response.url alt=imageTitle}}>
-    </div>
-    <div class="content">
-      <a class="ui header" {{bind-attr href=response.videoId}}>{{response.title}}</a>
-      <div class="description">
-        {{response.description}}
+{{#each video in videos}}
+  <div class="ui very relaxed list">
+    <div class="item">
+      <img {{bind-attr src=video.url}}>
+      <div class="content">
+        <a class="ui header" {{bind-attr href=video.videoId}}>{{video.title}}</a>
+        <i {{action "favorite" video}} {{bind-attr class=":heart :icon video.favorited:selected"}}></i>
+        <div class="description">
+          {{video.description}}
+        </div>
       </div>
     </div>
   </div>
-</div>
 {{/each}}
 
 {{outlet}}
