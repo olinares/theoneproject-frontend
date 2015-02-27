@@ -8,16 +8,15 @@
 
 
 {{#each response in videos}}
-<div class="ui list">
+<div class="ui very relaxed items">
   <div class="item">
-    <img {{bind-attr src=response.url alt=imageTitle}}>
+    <div class="image">
+      <img {{bind-attr src=response.url alt=imageTitle}}>
+    </div>
     <div class="content">
-      <a class="header">{{response.title}}</a>
+      <a class="ui header" {{bind-attr href=response.videoId}}>{{response.title}}</a>
       <div class="description">
         {{response.description}}
-      </div>
-      <div class="video">
-        {{ember-youtube ytid=response.videoId}}
       </div>
     </div>
   </div>

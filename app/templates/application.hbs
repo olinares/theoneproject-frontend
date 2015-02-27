@@ -2,7 +2,6 @@
 
 
   <div class="ui inverted menu" id="main-menu">
-    {{#link-to "users" classNames="item"}}Users{{/link-to}}
     {{#link-to "playlists" classNames="item"}}Playlists{{/link-to}}
     {{#link-to "videos" classNames="item"}}Videos{{/link-to}}
 
@@ -15,9 +14,18 @@
     </div>
   </div>
   <body>
-    <div id="main-outlet">
-      {{outlet}}
+
+    <div class="ui two column grid">
+      <div class="ten wide column">
+        <div id="main-outlet">
+          {{outlet}}
+        </div>
+      </div>
+      <div class="center aligned six wide column">
+        {{ember-youtube ytid=response.videoId}}
+      </div>
     </div>
+
   </body>
 
 

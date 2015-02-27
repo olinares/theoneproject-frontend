@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
           newVideos.push({
             title: response.items[i].snippet.title,
             url: response.items[i].snippet.thumbnails.default.url,
-            videoId: response.items[i].id.videoId,
+            videoId: "https://www.youtube.com/watch?v=" + response.items[i].id.videoId, 
             description: response.items[i].snippet.description
           });
         }
