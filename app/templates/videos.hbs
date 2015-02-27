@@ -1,7 +1,6 @@
-<h2>this is the videos template</h2>
 
 <form {{action 'search' on='submit'}}>
-  <div class="ui fluid icon input">
+  <div class="ui massive fluid icon input">
     {{input value=searchTerm placeholder="Search for your favorite videos..."}}
     <i class="search icon" type="submit"></i>
   </div>
@@ -14,10 +13,11 @@
     <img {{bind-attr src=response.url alt=imageTitle}}>
     <div class="content">
       <a class="header">{{response.title}}</a>
-      {{ember-youtube ytid=response.videoId}}
-
       <div class="description">
         {{response.description}}
+      </div>
+      <div class="video">
+        {{ember-youtube ytid=response.videoId}}
       </div>
     </div>
   </div>
